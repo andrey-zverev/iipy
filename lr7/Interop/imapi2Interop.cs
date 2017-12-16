@@ -40,7 +40,7 @@ namespace IMAPI2.Interop
         FsiItemDirectory,
         FsiItemFile
     }
-    
+
     public enum IMAPI_BURN_VERIFICATION_LEVEL
     {
         IMAPI_BURN_VERIFICATION_NONE,
@@ -164,7 +164,7 @@ namespace IMAPI2.Interop
 
     public enum IMAPI_FORMAT2_RAW_CD_WRITE_ACTION
     {
-        [TypeLibVar((short) 0x40)]
+        [TypeLibVar((short)0x40)]
         IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN = 0,
         IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_PREPARING = 1,
         IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_WRITING = 2,
@@ -174,7 +174,7 @@ namespace IMAPI2.Interop
 
     public enum IMAPI_FORMAT2_TAO_WRITE_ACTION
     {
-        [TypeLibVar((short) 0x40)]
+        [TypeLibVar((short)0x40)]
         IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN = 0,
         IMAPI_FORMAT2_TAO_WRITE_ACTION_PREPARING = 1,
         IMAPI_FORMAT2_TAO_WRITE_ACTION_WRITING = 2,
@@ -290,26 +290,26 @@ namespace IMAPI2.Interop
 
     #region IMAPI2 Structures
 
-    [StructLayout(LayoutKind.Sequential, Pack=4)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct _FILETIME
     {
         public uint dwLowDateTime;
         public uint dwHighDateTime;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack=8)]
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct _LARGE_INTEGER
     {
         public long QuadPart;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack=8)]
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct _ULARGE_INTEGER
     {
         public ulong QuadPart;
     }
 
-    [StructLayout(LayoutKind.Sequential, Pack=4)]
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct tagCONNECTDATA
     {
         [MarshalAs(UnmanagedType.IUnknown)]
@@ -319,7 +319,7 @@ namespace IMAPI2.Interop
 
 
 
-    [StructLayout(LayoutKind.Sequential, Pack=8)]
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct tagSTATSTG
     {
         [MarshalAs(UnmanagedType.LPWStr)]
@@ -343,7 +343,7 @@ namespace IMAPI2.Interop
     /// </summary>
     [ComImport]
     [Guid("2735413C-7F64-5B0F-8F00-5D77AFBE261E")]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     public interface DDiscFormat2DataEvents
     {
         // Update to current progress
@@ -353,7 +353,7 @@ namespace IMAPI2.Interop
     }
 
     [ComVisible(false)]
-    [ComEventInterface(typeof(DDiscFormat2DataEvents),typeof(DiscFormat2Data_EventProvider))]
+    [ComEventInterface(typeof(DDiscFormat2DataEvents), typeof(DiscFormat2Data_EventProvider))]
     [TypeLibType(TypeLibTypeFlags.FHidden)]
     public interface DiscFormat2Data_Event
     {
@@ -504,7 +504,7 @@ namespace IMAPI2.Interop
     /// Provides notification of media erase progress.
     /// </summary>
     [ComImport]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     [Guid("2735413A-7F64-5B0F-8F00-5D77AFBE261E")]
     public interface DDiscFormat2EraseEvents
     {
@@ -664,7 +664,7 @@ namespace IMAPI2.Interop
     /// CD Disc-At-Once RAW Writer Events
     /// </summary>
     [ComImport]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     [Guid("27354142-7F64-5B0F-8F00-5D77AFBE261E")]
     public interface DDiscFormat2RawCDEvents
     {
@@ -825,7 +825,7 @@ namespace IMAPI2.Interop
     /// </summary>
     [ComImport]
     [Guid("2735413F-7F64-5B0F-8F00-5D77AFBE261E")]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     public interface DDiscFormat2TrackAtOnceEvents
     {
         // Update to current progress
@@ -985,18 +985,18 @@ namespace IMAPI2.Interop
     /// </summary>
     [ComImport]
     [Guid("27354131-7F64-5B0F-8F00-5D77AFBE261E")]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     public interface DDiscMaster2Events
     {
         // A device was added to the system
         [DispId(0x100)]     // DISPID_DDISCMASTER2EVENTS_DEVICEADDED
         [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void NotifyDeviceAdded([In, MarshalAs(UnmanagedType.IDispatch)] object sender,  string uniqueId);
+        void NotifyDeviceAdded([In, MarshalAs(UnmanagedType.IDispatch)] object sender, string uniqueId);
 
         // A device was removed from the system
         [DispId(0x101)]     // DISPID_DDISCMASTER2EVENTS_DEVICEREMOVED
         [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void NotifyDeviceRemoved([In, MarshalAs(UnmanagedType.IDispatch)] object sender,  string uniqueId);
+        void NotifyDeviceRemoved([In, MarshalAs(UnmanagedType.IDispatch)] object sender, string uniqueId);
     }
 
 
@@ -1127,10 +1127,10 @@ namespace IMAPI2.Interop
     }
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-    public delegate void DiscMaster2_NotifyDeviceAddedEventHandler([In, MarshalAs(UnmanagedType.IDispatch)]object sender,  string uniqueId);
+    public delegate void DiscMaster2_NotifyDeviceAddedEventHandler([In, MarshalAs(UnmanagedType.IDispatch)]object sender, string uniqueId);
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-    public delegate void DiscMaster2_NotifyDeviceRemovedEventHandler([In, MarshalAs(UnmanagedType.IDispatch)]object sender,  string uniqueId);
+    public delegate void DiscMaster2_NotifyDeviceRemovedEventHandler([In, MarshalAs(UnmanagedType.IDispatch)]object sender, string uniqueId);
 
     [ClassInterface(ClassInterfaceType.None)]
     [TypeLibType(TypeLibTypeFlags.FHidden)]
@@ -1533,7 +1533,7 @@ namespace IMAPI2.Interop
     /// Provides notification of the progress of the WriteEngine2 writing.
     /// </summary>
     [ComImport]
-    [TypeLibType(TypeLibTypeFlags.FNonExtensible|TypeLibTypeFlags.FOleAutomation|TypeLibTypeFlags.FDispatchable)]
+    [TypeLibType(TypeLibTypeFlags.FNonExtensible | TypeLibTypeFlags.FOleAutomation | TypeLibTypeFlags.FDispatchable)]
     [Guid("27354137-7F64-5B0F-8F00-5D77AFBE261E")]
     public interface DWriteEngine2Events
     {
@@ -2502,7 +2502,7 @@ namespace IMAPI2.Interop
         //
         void SendCommandNoData(
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.U1, SizeParamIndex = 1)]
-            byte[] Cdb, 
+            byte[] Cdb,
             uint CdbSize,
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 18)] 
             byte[] SenseBuffer,
@@ -2511,13 +2511,13 @@ namespace IMAPI2.Interop
         // Send a command to the device that requires data sent to the device
         void SendCommandSendDataToDevice(
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.U1, SizeParamIndex = 1)]
-            byte[] Cdb, 
+            byte[] Cdb,
             uint CdbSize,
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 18)] 
-            byte[] SenseBuffer, 
+            byte[] SenseBuffer,
             uint Timeout,
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.U1, SizeParamIndex = 5)] 
-            byte[] Buffer, 
+            byte[] Buffer,
             uint BufferSize);
 
         // Send a command to the device that requests data from the device
@@ -2526,7 +2526,7 @@ namespace IMAPI2.Interop
             byte[] Cdb,
             uint CdbSize,
             [MarshalAs(UnmanagedType.LPArray, SizeConst = 18)] 
-            byte[] SenseBuffer, 
+            byte[] SenseBuffer,
             uint Timeout,
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.U1, SizeParamIndex = 5)] 
             byte[] Buffer,
@@ -2963,7 +2963,7 @@ namespace IMAPI2.Interop
 
         // Get boot options array for supporting multi-boot
         [DispId(60)]
-        object[] BootImageOptionsArray { get;  set; }
+        object[] BootImageOptionsArray { get; set; }
     }
 
     /// <summary>
@@ -3276,7 +3276,7 @@ namespace IMAPI2.Interop
     {
         // Add files and directories from the specified source directory including named streams
         [DispId(0x24)]
-        void AddTreeWithNamedStreams( string sourceDirectory, bool includeBaseDirectory);
+        void AddTreeWithNamedStreams(string sourceDirectory, bool includeBaseDirectory);
     }
 
     /// <summary>
@@ -3413,7 +3413,7 @@ namespace IMAPI2.Interop
 
         // Get the list of the named streams of the file
         [DispId(0x2d)]
-        FsiNamedStreams FsiNamedStreams {  get; }
+        FsiNamedStreams FsiNamedStreams { get; }
 
         // Flag indicating if file item is a named stream of a file
         [DispId(0x2e)]
@@ -3421,11 +3421,11 @@ namespace IMAPI2.Interop
 
         // Add a new named stream to the collection
         [DispId(0x2f)]
-        void AddStream( string Name, FsiStream streamData);
+        void AddStream(string Name, FsiStream streamData);
 
         // Remove a specific named stream from the collection
         [DispId(0x30)]
-        void RemoveStream( string Name);
+        void RemoveStream(string Name);
 
         // Flag indicating if file is Real-Time
         [DispId(0x31)]
@@ -3490,7 +3490,7 @@ namespace IMAPI2.Interop
 
         // Get a non-variant enumerator for the named stream collection
         [DispId(0x52)]
-        EnumFsiItems EnumNamedStreams {  get; }
+        EnumFsiItems EnumNamedStreams { get; }
     }
 
     /// <summary>
@@ -3503,15 +3503,15 @@ namespace IMAPI2.Interop
     {
         // Path to the ISO image file
         [DispId(0x100)]
-        string path {  [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] get; }
+        string path { [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] get; }
 
         // Stream from the ISO image
         [DispId(0x101)]
-        FsiStream Stream {  [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] get; }
+        FsiStream Stream { [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)] get; }
 
         // Set path to the ISO image file, overwrites stream
         [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-        void SetPath( string Val);
+        void SetPath(string Val);
 
         // Set stream from the ISO image, overwrites path
         [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
@@ -3686,7 +3686,7 @@ namespace IMAPI2.Interop
         int StartingTrackNumber { set; get; }
 
         [DispId(0x106)]
-        IRawCDImageTrackInfo this[int trackIndex] {  [DispId(0x106)] get; }
+        IRawCDImageTrackInfo this[int trackIndex] { [DispId(0x106)] get; }
 
         [DispId(0x107)]
         int NumberOfExistingTracks { get; }
@@ -3721,7 +3721,7 @@ namespace IMAPI2.Interop
 
         // The International Standard Recording Code (ISRC) for this track.
         [DispId(260)]
-        string ISRC {  get;  set; }
+        string ISRC { get; set; }
 
         // The digital audio copy setting for this track
         [DispId(0x105)]
@@ -3737,11 +3737,11 @@ namespace IMAPI2.Interop
 
         // Add the specified LBA (relative to the start of the track) as an index.
         [DispId(0x200)]
-        void AddTrackIndex( int lbaOffset);
+        void AddTrackIndex(int lbaOffset);
 
         // Removes the specified LBA (relative to the start of the track) as an index.
         [DispId(0x201)]
-        void ClearTrackIndex( int lbaOffset);
+        void ClearTrackIndex(int lbaOffset);
     }
 
 
@@ -3832,7 +3832,7 @@ namespace IMAPI2.Interop
     /// </summary>
     [ComImport]
     [Guid("27354144-7F64-5B0F-8F00-5D77AFBE261E")]
-    [TypeLibType(TypeLibTypeFlags.FDispatchable|TypeLibTypeFlags.FDual)]
+    [TypeLibType(TypeLibTypeFlags.FDispatchable | TypeLibTypeFlags.FDual)]
     public interface IWriteSpeedDescriptor
     {
         // The type of media that this descriptor is valid for
@@ -3867,58 +3867,6 @@ namespace IMAPI2.Interop
     public class MsftDiscFormat2DataClass
     {
     }
-
-    [ComImport]
-    [Guid("27354156-8F64-5B0F-8F00-5D77AFBE261E")]
-    [CoClass(typeof(MsftDiscFormat2EraseClass))]
-    public interface MsftDiscFormat2Erase : IDiscFormat2Erase, DiscFormat2Erase_Event
-    {
-    }
-
-    [ComImport]
-    [Guid("2735412B-7F64-5B0F-8F00-5D77AFBE261E")]
-    [ComSourceInterfaces("DDiscFormat2EraseEvents\0")]
-    [TypeLibType(TypeLibTypeFlags.FCanCreate), ClassInterface(ClassInterfaceType.None)]
-    public class MsftDiscFormat2EraseClass
-    {
-    }
-
-    [ComImport]
-    [CoClass(typeof(MsftDiscFormat2RawCDClass))]
-    [Guid("27354155-8F64-5B0F-8F00-5D77AFBE261E")]
-    public interface MsftDiscFormat2RawCD : IDiscFormat2RawCD, DiscFormat2RawCD_Event
-    {
-    }
-
-    [ComImport]
-    [Guid("27354128-7F64-5B0F-8F00-5D77AFBE261E")]
-    [ComSourceInterfaces("DDiscFormat2RawCDEvents\0")]
-    [TypeLibType(TypeLibTypeFlags.FCanCreate)]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class MsftDiscFormat2RawCDClass
-    {
-    }
-
-    /// <summary>
-    /// Microsoft IMAPIv2 Track-at-Once Audio CD Writer
-    /// </summary>
-    [ComImport]
-    [Guid("27354154-8F64-5B0F-8F00-5D77AFBE261E")]
-    [CoClass(typeof(MsftDiscFormat2TrackAtOnceClass))]
-    public interface MsftDiscFormat2TrackAtOnce : IDiscFormat2TrackAtOnce, DiscFormat2TrackAtOnce_Event
-    {
-    }
-
-    [ComImport]
-    [TypeLibType(TypeLibTypeFlags.FCanCreate)]
-    [ComSourceInterfaces("DDiscFormat2TrackAtOnceEvents\0")]
-    [Guid("27354129-7F64-5B0F-8F00-5D77AFBE261E")]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class MsftDiscFormat2TrackAtOnceClass
-    {
-    }
-
-
     /// <summary>
     /// Microsoft IMAPIv2 Disc Master
     /// </summary>
@@ -3944,43 +3892,14 @@ namespace IMAPI2.Interop
     {
     }
 
-
     [ComImport]
     [Guid("2735412D-7F64-5B0F-8F00-5D77AFBE261E")]
     [TypeLibType(TypeLibTypeFlags.FCanCreate)]
     [ClassInterface(ClassInterfaceType.None)]
-    public class MsftDiscRecorder2Class 
+    public class MsftDiscRecorder2Class
     {
     }
 
-    [ComImport]
-    [Guid("27354151-7F64-5B0F-8F00-5D77AFBE261E")]
-    [CoClass(typeof(MsftMultisessionSequentialClass))]
-    public interface MsftMultisessionSequential : IMultisessionSequential
-    {
-    }
-
-    [ComImport]
-    [Guid("27354122-7F64-5B0F-8F00-5D77AFBE261E")]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class MsftMultisessionSequentialClass
-    {
-    }
-
-    [ComImport]
-    [Guid("25983550-9D65-49CE-B335-40630D901227")]
-    [CoClass(typeof(MsftRawCDImageCreatorClass))]
-    public interface MsftRawCDImageCreator : IRawCDImageCreator
-    {
-    }
-
-    [ComImport]
-    [Guid("25983561-9D65-49CE-B335-40630D901227")]
-    [TypeLibType(TypeLibTypeFlags.FCanCreate)]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class MsftRawCDImageCreatorClass
-    {
-    }
 
     [ComImport]
     [Guid("27354135-7F64-5B0F-8F00-5D77AFBE261E")]
@@ -4005,7 +3924,8 @@ namespace IMAPI2.Interop
     {
     }
 
-    [ComImport][ClassInterface(ClassInterfaceType.None)]
+    [ComImport]
+    [ClassInterface(ClassInterfaceType.None)]
     [Guid("27354123-7F64-5B0F-8F00-5D77AFBE261E")]
     public class MsftWriteSpeedDescriptorClass
     {
@@ -4140,20 +4060,7 @@ namespace IMAPI2.Interop
     {
     }
 
-    [ComImport]
-    [Guid("6CA38BE5-FBBB-4800-95A1-A438865EB0D4")]
-    [CoClass(typeof(MsftIsoImageManagerClass))]
-    public interface MsftIsoImageManager : IIsoImageManager
-    {
-    }
 
-    [ComImport]
-    [ClassInterface(ClassInterfaceType.None)]
-    [Guid("CEEE3B62-8F56-4056-869B-EF16917E3EFC")]
-    [TypeLibType(TypeLibTypeFlags.FCanCreate)]
-    public class MsftIsoImageManagerClass
-    {
-    }
 
     [ComImport]
     [Guid("2C941FD5-975B-59BE-A960-9A2A262853A5")]
@@ -4183,6 +4090,5 @@ namespace IMAPI2.Interop
     {
     }
 }
-
 
 
