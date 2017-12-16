@@ -28,11 +28,7 @@ namespace IMAPI2.MediaItem
         [DllImport("user32.dll")]
         public static extern bool DestroyIcon(IntPtr handle);
 
-        public const uint FILE_ATTRIBUTE_NORMAL = 0x00000080;
-
-        public const uint STGM_DELETEONRELEASE = 0x04000000;
         public const uint STGM_SHARE_DENY_WRITE = 0x00000020;
-        public const uint STGM_SHARE_DENY_NONE = 0x00000040;
         public const uint STGM_READ = 0x00000000;
 
         [DllImport("shlwapi.dll", CharSet = CharSet.Unicode, ExactSpelling = true, PreserveSig = false, EntryPoint = "SHCreateStreamOnFileW")]
